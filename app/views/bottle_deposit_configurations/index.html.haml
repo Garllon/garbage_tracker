@@ -1,0 +1,18 @@
+.card
+  .card-header
+    = link_to fa_icon('plus', text: 'New Bottle Deposit Configuration'), new_bottle_deposit_configuration_path, class: 'btn btn-success'
+  .card-body
+    %table.table
+      %thead
+        %tr
+          %th{:scope => "col"} Name
+          %th{:scope => "col"} Price
+          %th{:scope => "col"} 
+      %tbody
+        - @bottle_deposit_configurations.each do |bottle_deposit_configuration|
+          %tr
+            %td{:scope => "row"}= bottle_deposit_configuration.name 
+            %td{:scope => "row"}= bottle_deposit_configuration.price
+            %td.text-right
+              = link_to fa_icon("eye", text: 'Show'), bottle_deposit_configuration_path(bottle_deposit_configuration), class: 'btn-button'
+              = link_to fa_icon("edit", text: 'Edit'), edit_bottle_deposit_configuration_path(bottle_deposit_configuration), class: 'btn-button'

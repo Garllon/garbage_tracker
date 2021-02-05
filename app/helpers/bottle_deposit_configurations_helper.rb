@@ -1,0 +1,2 @@
+module BottleDepositConfigurationsHelper
+end
