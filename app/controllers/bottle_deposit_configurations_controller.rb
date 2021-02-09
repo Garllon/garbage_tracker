@@ -3,10 +3,6 @@ class BottleDepositConfigurationsController < ApplicationController
     @bottle_deposit_configurations = BottleDepositConfiguration.all
   end
 
-  def show
-    @bottle_deposit_configuration = BottleDepositConfiguration.find(params[:id])
-  end
-
   def new
     @bottle_deposit_configuration = BottleDepositConfiguration.new
   end
@@ -23,6 +19,12 @@ class BottleDepositConfigurationsController < ApplicationController
   def update
     bottle_deposit_configuration = BottleDepositConfiguration.find(params[:id])
     bottle_deposit_configuration.update!(bottle_deposit_configuration_params)
+    redirect_to bottle_deposit_configurations_path
+  end
+
+  def destroy
+    bottle_deposit_configuration = BottleDepositConfiguration.find(params[:id])
+    bottle_deposit_configuration.delete
     redirect_to bottle_deposit_configurations_path
   end
 

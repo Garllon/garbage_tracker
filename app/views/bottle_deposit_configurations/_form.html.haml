@@ -8,7 +8,7 @@
         = form.text_field :name, class: 'form-control'
       .field
         = form.label :price
-        = form.number_field :price
+        = form.number_field :price, class: 'form-control'
     .card-footer
       = form.submit "#{action}", class: 'btn btn-success'
-      = link_to 'Back', bottle_deposit_configurations_path, class: 'btn btn-danger'
+      = link_to 'Cancel', bottle_deposit_configurations_path, class: 'btn btn-danger pull-right'

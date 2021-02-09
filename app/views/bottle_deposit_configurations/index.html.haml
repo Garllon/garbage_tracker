@@ -12,7 +12,7 @@
         - @bottle_deposit_configurations.each do |bottle_deposit_configuration|
           %tr
             %td{:scope => "row"}= bottle_deposit_configuration.name 
-            %td{:scope => "row"}= bottle_deposit_configuration.price
+            %td{:scope => "row"}= number_to_currency(bottle_deposit_configuration.price)
             %td.text-right
-              = link_to fa_icon("eye", text: 'Show'), bottle_deposit_configuration_path(bottle_deposit_configuration), class: 'btn-button'
-              = link_to fa_icon("edit", text: 'Edit'), edit_bottle_deposit_configuration_path(bottle_deposit_configuration), class: 'btn-button'
+              = link_to fa_icon("edit", text: 'Edit'), edit_bottle_deposit_configuration_path(bottle_deposit_configuration), class: 'btn btn-default'
+              = link_to fa_icon("trash", text: 'Delete'), bottle_deposit_configuration_path(bottle_deposit_configuration), method: :delete, class: 'btn btn-danger'
