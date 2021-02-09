@@ -1,0 +1,18 @@
+.card
+  .card-header
+    = link_to fa_icon('plus', text: 'New Bottle Deposit Configuration'), new_bottle_deposit_configuration_path, class: 'btn btn-success'
+  .card-body
+    %table.table
+      %thead
+        %tr
+          %th{:scope => "col"} Name
+          %th{:scope => "col"} Price
+          %th{:scope => "col"} 
+      %tbody
+        - @configurations.each do |configuration|
+          %tr
+            %td{:scope => "row"}= configuration.name 
+            %td{:scope => "row"}= number_to_currency(configuration.price)
+            %td.text-right
+              = link_to fa_icon("edit", text: 'Edit'), edit_bottle_deposit_configuration_path(configuration), class: 'btn btn-default'
+              = link_to fa_icon("trash", text: 'Delete'), bottle_deposit_configuration_path(configuration), method: :delete, class: 'btn btn-danger'

@@ -1,2 +1,0 @@
-class BottleDepositConfiguration < ApplicationRecord
-end

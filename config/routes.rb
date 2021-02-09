@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :bottle_deposit_configurations, except: [:show]
+  namespace :bottle_deposit do
+    resources :configurations, except: [:show]
+  end
 end
