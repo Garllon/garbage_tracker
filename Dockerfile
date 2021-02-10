@@ -9,9 +9,9 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY Gemfile /app/Gemfile
-# COPY Gemfile.lock /app/Gemfile.lock
+COPY Gemfile.lock /app/Gemfile.lock
 
-RUN bundle install
+RUN bundle config set frozen true && bundle install --jobs 5 && bundle config set frozen false
 COPY . /app
 
 EXPOSE 3000

@@ -1,7 +1,7 @@
 setup:
-	docker-compose build web
-	docker-compose run web rake db:create
-	docker-compose run web rake db:migrate
+	docker-compose build
+	docker-compose run --rm web bundle exec rake db:create
+	docker-compose run --rm web bundle exec rake db:migrate
 
 devserver:
 	docker-compose up web
