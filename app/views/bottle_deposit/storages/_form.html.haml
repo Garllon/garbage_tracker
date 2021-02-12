@@ -1,0 +1,20 @@
+.card
+  .card-header
+    = "#{action} Bottle Deposit Storage"
+  = form_with model: storage do |form|
+    .card-body
+      .form-group
+        = form.label :name
+        = form.text_field :name, class: 'form-control'
+      .form-group
+        = form.label :amount
+        = form.number_field :amount, class: 'form-control'
+      .form-group
+        = form.label :bottle_deposit_configuration_id
+        = form.collection_select :bottle_deposit_configuration_id,
+          BottleDeposit::Configuration.all, :id, :name,
+          { selected: storage.bottle_deposit_id },
+          { class: 'form-control' }
+    .card-footer
+      = form.submit "#{action}", class: 'btn btn-success'
+      = link_to 'Cancel', bottle_deposit_storages_path, class: 'btn btn-danger pull-right'
