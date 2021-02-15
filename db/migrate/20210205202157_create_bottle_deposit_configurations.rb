@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBottleDepositConfigurations < ActiveRecord::Migration[6.1]
   def change
     create_table :bottle_deposit_configurations do |t|

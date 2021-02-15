@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BottleDeposit
   class StoragesController < ApplicationController
     def index
@@ -33,8 +35,8 @@ module BottleDeposit
 
     def storage_params
       storage_params = params
-        .require(:bottle_deposit_storage)
-        .permit(:name, :amount, :bottle_deposit_configuration_id)
+                       .require(:bottle_deposit_storage)
+                       .permit(:name, :amount, :bottle_deposit_configuration_id)
       storage_params[:bottle_deposit_id] =
         storage_params.delete(:bottle_deposit_configuration_id)
       storage_params
