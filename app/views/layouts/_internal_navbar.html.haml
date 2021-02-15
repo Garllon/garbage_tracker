@@ -10,5 +10,5 @@
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Bottle Deposit
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to 'Storage', bottle_deposit_storages_path, class: 'dropdown-item'
             = link_to 'Configuration', bottle_deposit_configurations_path, class: 'dropdown-item'
-            -# = link_to 'My Bootle Deposit', my_bottle_deposits_path, class: 'dropdown-item'

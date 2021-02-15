@@ -5,13 +5,12 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client && \
     apt-get install -y xfonts-75dpi xfonts-base && \
     wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb && dpkg -i wkhtmltox_0.12.6-1.buster_amd64.deb
 
-RUN mkdir /app
 WORKDIR /app
 
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+ADD Gemfile Gemfile.lock .ruby-version package.json yarn.lock ./
 
-RUN bundle config set frozen true && bundle install --jobs 5 && bundle config set frozen false
+RUN bundle config set frozen true && bundle install --jobs 5 && bundle config set frozen false && \
+    yarn
 COPY . /app
 
 EXPOSE 3000
