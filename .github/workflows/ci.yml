@@ -18,3 +18,19 @@ jobs:
     - name: Build and test
       run: |
         bundle exec rubocop
+  bundle-outdated:
+    name: Bundle oudated
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7.x
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+    - name: Build and test
+      continue-on-error: true
+      run: |
+        bundle outdated
