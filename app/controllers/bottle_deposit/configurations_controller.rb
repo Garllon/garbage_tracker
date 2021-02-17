@@ -2,6 +2,8 @@
 
 module BottleDeposit
   class ConfigurationsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
       @configurations = Configuration.all
     end
