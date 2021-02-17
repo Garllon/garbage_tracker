@@ -2,6 +2,8 @@
 
 module BottleDeposit
   class StoragesController < ApplicationController
+    before_action :authenticate_user!
+
     def index
       @storages = Storage.includes(:configuration)
     end
