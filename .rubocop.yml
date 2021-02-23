@@ -19,3 +19,9 @@ Metrics/MethodLength:
 Layout/LineLength:
   Exclude:
     - 'bin/bundle'
+    - 'config/initializers/devise.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
+    - 'db/schema.rb'
