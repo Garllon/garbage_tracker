@@ -7,10 +7,9 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client && \
 
 WORKDIR /app
 
-ADD Gemfile Gemfile.lock .ruby-version package.json yarn.lock ./
+ADD Gemfile Gemfile.lock .ruby-version ./
 
-RUN bundle config set frozen true && bundle install --jobs 5 && bundle config set frozen false && \
-    yarn
+RUN bundle config set frozen true && bundle install --jobs 5 && bundle config set frozen false
 COPY . /app
 
 EXPOSE 3000
