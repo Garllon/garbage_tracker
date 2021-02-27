@@ -8,6 +8,12 @@
       %ul.navbar-nav.ml-auto
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Garbage
+          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
+            = link_to 'Pills', garbage_pills_path, class: 'dropdown-item'
+            = link_to 'Container', garbage_containers_path, class: 'dropdown-item'
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Bottle Deposit
           .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
             = link_to 'Storage', bottle_deposit_storages_path, class: 'dropdown-item'
@@ -19,4 +25,3 @@
             = link_to 'Edit User', edit_user_registration_path, class: 'dropdown-item'
             .dropdown-divider
             = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item'
-
