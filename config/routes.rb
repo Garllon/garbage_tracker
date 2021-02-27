@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     resources :configurations, except: [:show]
     resources :storages, except: [:show]
   end
+
+  namespace :garbage do
+    resources :pills, except: [:show]
+    resources :containers, except: [:show]
+  end
 end
