@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   namespace :garbage do
-    resources :pills, except: [:show]
+    resources :piles, except: [:show]
     resources :containers, except: [:show]
   end
 end
