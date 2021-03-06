@@ -4,19 +4,15 @@
   %table.table
     %thead
       %tr
-        %th{:scope => "col"} Name
-        %th{:scope => "col"} Type
+        %th{:scope => "col"} Kind
         %th{:scope => "col"} Weight
-        %th{:scope => "col"} Container
         %th{:scope => "col"} Produced At
         %th{:scope => "col"} 
     %tbody
       - @piles.each do |pile|
         %tr
-          %td{:scope => "row"}= pile.name
-          %td{:scope => "row"}= pile.type
+          %td{:scope => "row"}= pile.kind
           %td{:scope => "row"}= pile.weight
-          %td{:scope => "row"}= pile.container.name
           %td{:scope => "row"}= pile.produced_at
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_garbage_pile_path(pile), class: 'btn btn-default'

@@ -2,7 +2,7 @@
 
 module Garbage
   class Pile < ApplicationRecord
-    enum type: [:bio, :paper, :plastik, :waste]
+    enum kind: [:bio, :paper, :plastic, :waste]
 
     self.table_name = 'garbage_piles'
     belongs_to :container
