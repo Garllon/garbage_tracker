@@ -13,8 +13,23 @@ module Garbage
     end
 
     def create
-      byebug
       Pile.create!(pile_params)
+      redirect_to garbage_piles_path
+    end
+
+    def edit
+      @pile = Pile.find(params[:id])
+    end
+
+    def update
+      pile = Pile.find(params[:id])
+      pile.update!(pile_params)
+      redirect_to garbage_piles_path
+    end
+
+    def destroy
+      pile = Pile.find(params[:id])
+      pile.delete
       redirect_to garbage_piles_path
     end
 
