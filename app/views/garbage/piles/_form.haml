@@ -1,0 +1,21 @@
+.card
+  .card-header
+    = "#{action} Pile"
+  = form_with model: pile do |form|
+    .card-body
+      .form-group
+        = form.label :kind
+        = form.select :kind, Garbage::Pile.kinds.keys, { selected: pile.kind }, class: 'form-control'
+      .form-group
+        = form.label :weight
+        = form.number_field :weight, class: 'form-control'
+      .form-group
+        = form.label :container_id
+        = form.collection_select :container_id,
+          Garbage::Container.all, :id, :name,
+          { selected: pile.container_id },
+          { class: 'form-control' }
+
+    .card-footer
+      = form.submit "#{action}", class: 'btn btn-success'
+      = link_to 'Cancel', garbage_piles_path, class: 'btn btn-outline-danger pull-right'
