@@ -13,8 +13,14 @@ module Garbage
     end
 
     def create
-      Pile.create!(pile_params)
-      redirect_to garbage_piles_path
+      pile = Pile.new(pile_params)
+
+      if pile.save
+        redirect_to garbage_piles_path
+      else
+        flash[:error] = pile.errors.full_messages
+        redirect_to garbage_piles_path(pile)
+      end
     end
 
     def edit
@@ -23,8 +29,12 @@ module Garbage
 
     def update
       pile = Pile.find(params[:id])
-      pile.update!(pile_params)
-      redirect_to garbage_piles_path
+      if pile.update(pile_params)
+        redirect_to garbage_piles_path
+      else
+        flash[:error] = pile.errors.full_messages
+        redirect_to garbage_piles_path(pile)
+      end
     end
 
     def destroy
