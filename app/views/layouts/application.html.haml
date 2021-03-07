@@ -14,4 +14,8 @@
     - else
       = render partial: 'layouts/external_navbar'
     .container.main-body
+      - flash.each do |key, value|
+        %div{class: flash_class(key)}
+          = value
+
       = yield
