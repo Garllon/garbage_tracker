@@ -10,6 +10,9 @@
         = form.label :weight
         = form.number_field :weight, class: 'form-control'
       .form-group
+        = form.label :produced_at
+        = form.date_field :produced_at, class: 'form-control'
+      .form-group
         = form.label :container_id
         = form.collection_select :container_id,
           Garbage::Container.all, :id, :name,
