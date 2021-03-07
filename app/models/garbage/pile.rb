@@ -9,6 +9,7 @@ module Garbage
 
     enum kind: %i[bio paper plastic waste]
     validates :produced_at, presence: true
+    validates :weight, presence: true
 
     before_save :calculate_real_weight
 
