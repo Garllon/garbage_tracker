@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGarbageContainer < ActiveRecord::Migration[6.1]
   def change
     create_table :garbage_containers do |t|

@@ -37,8 +37,8 @@ module Garbage
 
     def container_params
       container_params = params
-                           .require(:garbage_container)
-                           .permit(:name, :weight)
+                         .require(:garbage_container)
+                         .permit(:name, :weight)
       container_params[:user_id] = current_user.id
       container_params
     end

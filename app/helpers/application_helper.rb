@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  FLASH_LEVEL = {
+    'notice' => 'alert-info',
+    'success' => 'alert-success',
+    'error' => 'alert-danger'
+  }.freeze
+
   def flash_class(level)
-    case level.to_sym
-    when :notice then "alert alert-info"
-    when :success then "alert alert-success"
-    when :error then "alert alert-danger"
-    when :alert then "alert alert-danger"
-    end
+    "alert #{FLASH_LEVEL[level]}"
   end
 end
