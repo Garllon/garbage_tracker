@@ -30,7 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  garbage:
+    piles:
+      create:
+        success: 'The new pile was successfully created!'
+      update:
+        success: 'The pile was successfully updated!'
   number:
     currency:
       format:

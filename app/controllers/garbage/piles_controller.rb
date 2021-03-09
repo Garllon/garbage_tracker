@@ -16,10 +16,9 @@ module Garbage
       pile = Pile.new(pile_params)
 
       if pile.save
-        redirect_to garbage_piles_path
+        redirect_to garbage_piles_path, notice: t('.success')
       else
-        flash[:error] = pile.errors.full_messages
-        redirect_to garbage_piles_path(pile)
+        redirect_to garbage_piles_path(pile), alert: pile.errors.full_messages
       end
     end
 
@@ -30,10 +29,9 @@ module Garbage
     def update
       pile = Pile.find(params[:id])
       if pile.update(pile_params)
-        redirect_to garbage_piles_path
+        redirect_to garbage_piles_path, notice: t('.success')
       else
-        flash[:error] = pile.errors.full_messages
-        redirect_to garbage_piles_path(pile)
+        redirect_to garbage_piles_path(pile), alert: pile.errors.full_messages
       end
     end
 
