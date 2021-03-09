@@ -3,8 +3,7 @@
 module ApplicationHelper
   FLASH_LEVEL = {
     'notice' => 'alert-info',
-    'success' => 'alert-success',
-    'error' => 'alert-danger'
+    'alert' => 'alert-danger'
   }.freeze
 
   def flash_class(level)
