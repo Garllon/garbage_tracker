@@ -31,6 +31,11 @@
 
 en:
   garbage:
+    containers:
+      create:
+        success: 'The new container was successfully created!'
+      update:
+        success: 'The container was successfully updated!'
     piles:
       create:
         success: 'The new pile was successfully created!'
