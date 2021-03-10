@@ -13,8 +13,14 @@ module Garbage
     end
 
     def create
-      Container.create!(container_params)
-      redirect_to garbage_containers_path
+      container = Container.new(container_params)
+
+      if container.save
+        redirect_to garbage_containers_path, notice: t('.success')
+      else
+        redirect_to garbage_containers_path(container),
+          alert: container.errors.full_messages
+      end
     end
 
     def edit
@@ -23,8 +29,12 @@ module Garbage
 
     def update
       container = Container.find(params[:id])
-      container.update!(container_params)
-      redirect_to garbage_containers_path
+      if container.update(container_params)
+        redirect_to garbage_containers_path, notice: t('.success')
+      else
+        redirect_to garbage_containers_path(container),
+          alert: container.errors.full_messages
+      end
     end
 
     def destroy
