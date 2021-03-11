@@ -1,0 +1,42 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .card
+    %h2.card-header
+      Edit #{resource_name.to_s.humanize}
+    .card-body
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "email",
+          class: 'form-control'
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+      .form-group
+        = f.label :password
+        %i (leave blank if you don't want to change it)
+        = f.password_field :password, autocomplete: "new-password",
+          class: 'form-control'
+        - if @minimum_password_length
+          %em
+            = @minimum_password_length
+            characters minimum
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: "new-password",
+          class: 'form-control'
+      .form-group
+        = f.label :current_password
+        %i (we need your current password to confirm your changes)
+        = f.password_field :current_password, autocomplete: "current-password",
+          class: 'form-control'
+    .card-footer
+      = f.submit "Update", class: 'btn btn-success'
+
+.mt-4
+  .card
+    %h2.card-header
+      Cancel my account
+    .card-body
+      .form-group
+        Unhappy?
+        = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
