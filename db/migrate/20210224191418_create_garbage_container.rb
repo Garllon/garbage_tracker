@@ -2,7 +2,7 @@
 
 class CreateGarbageContainer < ActiveRecord::Migration[6.1]
   def change
-    create_table :garbage_containers do |t|
+    create_table :containers do |t|
       t.string :name
       t.decimal :weight
       t.belongs_to :user

@@ -1,6 +1,6 @@
 .card
   .card-header
-    = link_to fa_icon('plus', text: 'New Pile'), new_garbage_pile_path, class: 'btn btn-success'
+    = link_to fa_icon('plus', text: 'New Pile'), new_pile_path, class: 'btn btn-success'
   %table.table
     %thead
       %tr
@@ -17,5 +17,5 @@
           %td{:scope => "row"}= pile.real_weight
           %td{:scope => "row"}= pile.produced_at
           %td.text-right
-            = link_to fa_icon("edit", text: 'Edit'), edit_garbage_pile_path(pile), class: 'btn btn-default'
-            = link_to fa_icon("trash", text: 'Delete'), garbage_pile_path(pile), method: :delete, class: 'btn btn-danger'
+            = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-default'
+            = link_to fa_icon("trash", text: 'Delete'), pile_path(pile), method: :delete, class: 'btn btn-danger'

@@ -2,6 +2,6 @@
 
 class AddRealWeightToPills < ActiveRecord::Migration[6.1]
   def change
-    add_column :garbage_piles, :real_weight, :integer
+    add_column :piles, :real_weight, :integer
   end
 end
