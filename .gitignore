@@ -21,6 +21,9 @@
 # Ignore uploaded files in development.
 /garbage_tracker/*
 !/garbage_tracker/.keep
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
 
 /public/assets
 .byebug_history
