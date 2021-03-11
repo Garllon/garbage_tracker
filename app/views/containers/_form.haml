@@ -1,6 +1,6 @@
 .card
   .card-header
-    = "#{action} Garbage Container"
+    = "#{action} Container"
   = form_with model: container do |form|
     .card-body
       .form-group
@@ -11,4 +11,4 @@
         = form.number_field :weight, class: 'form-control'
     .card-footer
       = form.submit "#{action}", class: 'btn btn-success'
-      = link_to 'Cancel', garbage_containers_path, class: 'btn btn-outline-danger pull-right'
+      = link_to 'Cancel', containers_path, class: 'btn btn-outline-danger pull-right'

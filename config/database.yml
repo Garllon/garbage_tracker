@@ -6,18 +6,18 @@ default: &default
 
 development:
   <<: *default
-  database: storage_development
+  database: garbage_tracker_development
   username: postgres
   password: password
 
 test:
   <<: *default
-  database: storage_test
+  database: garbage_tracker_test
   username: postgres
   password: password
 
 production:
   <<: *default
-  database: storage_production
-  username: storage
-  password: <%= ENV['STORAGE_DATABASE_PASSWORD'] %>
+  database: garbage_tracker_production
+  username: garbage_tracker
+  password: <%= ENV['GARBAGE_TRACKER_DATABASE_PASSWORD'] %>

@@ -1,23 +1,15 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
     %a.navbar-brand{:href => "#"}
-      Storage
+      Garbage-Tracker
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse.pull-ight
       %ul.navbar-nav.ml-auto
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Garbage
-          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
-            = link_to 'Piles', garbage_piles_path, class: 'dropdown-item'
-            = link_to 'Container', garbage_containers_path, class: 'dropdown-item'
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Bottle Deposit
-          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
-            = link_to 'Storage', bottle_deposit_storages_path, class: 'dropdown-item'
-            = link_to 'Configuration', bottle_deposit_configurations_path, class: 'dropdown-item'
+        %li.nav-item
+          = link_to 'Piles', piles_path, class: 'nav-link'
+        %li.nav-item
+          = link_to 'Container', containers_path, class: 'nav-link'
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             %strong= current_user.email
