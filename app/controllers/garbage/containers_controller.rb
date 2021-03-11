@@ -19,7 +19,7 @@ module Garbage
         redirect_to garbage_containers_path, notice: t('.success')
       else
         redirect_to garbage_containers_path(container),
-          alert: container.errors.full_messages
+                    alert: container.errors.full_messages
       end
     end
 
@@ -33,7 +33,7 @@ module Garbage
         redirect_to garbage_containers_path, notice: t('.success')
       else
         redirect_to garbage_containers_path(container),
-          alert: container.errors.full_messages
+                    alert: container.errors.full_messages
       end
     end
 
