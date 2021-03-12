@@ -12,13 +12,13 @@ class ContainersController < ApplicationController
   end
 
   def create
-    container = Container.new(container_params)
+    @container = Container.new(container_params)
 
-    if container.save
+    if @container.save
       redirect_to containers_path, notice: t('.success')
     else
-      redirect_to containers_path(container),
-                  alert: container.errors.full_messages
+      flash[:alert] = @container.errors.full_messages
+      render :new
     end
   end
 
@@ -27,12 +27,13 @@ class ContainersController < ApplicationController
   end
 
   def update
-    container = Container.find(params[:id])
-    if container.update(container_params)
+    @container = Container.find(params[:id])
+
+    if @container.update(container_params)
       redirect_to containers_path, notice: t('.success')
     else
-      redirect_to containers_path(container),
-                  alert: container.errors.full_messages
+      flash[:alert] = @container.errors.full_messages
+      render :edit
     end
   end
 
