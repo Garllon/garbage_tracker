@@ -30,17 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  garbage:
-    containers:
-      create:
-        success: 'The new container was successfully created!'
-      update:
-        success: 'The container was successfully updated!'
-    piles:
-      create:
-        success: 'The new pile was successfully created!'
-      update:
-        success: 'The pile was successfully updated!'
+  containers:
+    create:
+      success: 'The new container was successfully created!'
+    update:
+      success: 'The container was successfully updated!'
+  piles:
+    create:
+      success: 'The new pile was successfully created!'
+    update:
+      success: 'The pile was successfully updated!'
   number:
     currency:
       format:
