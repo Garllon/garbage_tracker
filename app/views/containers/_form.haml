@@ -10,5 +10,5 @@
         = form.label :weight
         = form.number_field :weight, class: 'form-control'
     .card-footer
-      = form.submit "#{action}", class: 'btn btn-success'
+      = form.button fa_icon('save', text: "#{action}"), class: 'btn btn-success'
       = link_to 'Cancel', containers_path, class: 'btn btn-outline-danger pull-right'
