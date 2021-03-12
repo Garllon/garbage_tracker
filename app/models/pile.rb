@@ -11,10 +11,6 @@ class Pile < ApplicationRecord
   before_save :calculate_real_weight
 
   def calculate_real_weight
-    self.real_weight = if container.present?
-                         weight - container.weight
-                       else
-                        weight
-                       end
+    self.real_weight = container.present? ? weight - container.weight : weight
   end
 end
