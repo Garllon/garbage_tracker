@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Pile < ApplicationRecord
-  belongs_to :container
+  belongs_to :container, optional: true
   belongs_to :user
 
   enum kind: %i[bio paper plastic waste]
@@ -11,6 +11,10 @@ class Pile < ApplicationRecord
   before_save :calculate_real_weight
 
   def calculate_real_weight
-    self.real_weight = weight - container.weight
+    self.real_weight = if container.present?
+                         weight - container.weight
+                       else
+                        weight
+                       end
   end
 end

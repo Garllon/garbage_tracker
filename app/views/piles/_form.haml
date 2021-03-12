@@ -16,7 +16,8 @@
         = form.label :container_id
         = form.collection_select :container_id,
           Container.all, :id, :name,
-          { selected: pile.container_id },
+          { selected: pile.container_id,
+            include_blank: 'No Container' },
           { class: 'form-control' }
 
     .card-footer
