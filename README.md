@@ -1,4 +1,9 @@
-# README
+# Garbage Tracker
+
+# Images
+
+The images i am using i got from the
+[https://thenounproject.com/](https://thenounproject.com/)
 
 Audits?
 https://evilmartians.com/chronicles/logidze-1-0-active-record-postgresql-rails-and-time-travel
