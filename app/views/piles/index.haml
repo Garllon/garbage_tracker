@@ -11,7 +11,7 @@
         %th{:scope => "col"} 
     %tbody
       - @piles.each do |pile|
-        %tr
+        %tr{class: row_background_color(pile.kind)}
           %td{:scope => "row"}= pile.kind
           %td{:scope => "row"}= pile.weight
           %td{:scope => "row"}= pile.real_weight
