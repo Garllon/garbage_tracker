@@ -4,14 +4,15 @@
   %table.table
     %thead
       %tr
-        %th{:scope => "col"} Name
-        %th{:scope => "col"} Weight (in g)
-        %th{:scope => "col"}
+        %th Name
+        %th.text-right Weight (in g)
+        %th
     %tbody
       - @containers.each do |container|
         %tr
-          %td{:scope => "row"}= container.name
-          %td{:scope => "row"}= container.weight
+          %td= container.name
+          %td.text-right
+            = number_with_delimiter(container.weight, delimiter: ".")
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_container_path(container), class: 'btn btn-default'
             = link_to fa_icon("trash", text: 'Delete'), container_path(container), method: :delete, class: 'btn btn-danger'
