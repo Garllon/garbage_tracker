@@ -12,12 +12,13 @@ class PilesController < ApplicationController
   end
 
   def create
-    pile = Pile.new(pile_params)
+    @pile = Pile.new(pile_params)
 
-    if pile.save
+    if @pile.save
       redirect_to piles_path, notice: t('.success')
     else
-      redirect_to piles_path(pile), alert: pile.errors.full_messages
+      flash[:alert] = @pile.errors.full_messages
+      render :new
     end
   end
 
@@ -26,11 +27,13 @@ class PilesController < ApplicationController
   end
 
   def update
-    pile = Pile.find(params[:id])
-    if pile.update(pile_params)
+    @pile = Pile.find(params[:id])
+
+    if @pile.update(pile_params)
       redirect_to piles_path, notice: t('.success')
     else
-      redirect_to piles_path(pile), alert: pile.errors.full_messages
+      flash[:alert] = @pile.errors.full_messages
+      render :edit
     end
   end
 
