@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :piles, except: [:show]
   resources :containers, except: [:show]
+  resources :graphs, only: [:index]
 end
