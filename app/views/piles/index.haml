@@ -12,12 +12,13 @@
     %tbody
       - @piles.each do |pile|
         %tr{class: row_background_color(pile.kind)}
-          %td= pile.produced_at
-          %td.text-right
+          %td.align-middle
+            = pile.produced_at
+          %td.text-right.align-middle
             = number_with_delimiter(pile.weight, delimiter: '.')
-          %td.text-right
+          %td.text-right.align-middle
             = number_with_delimiter(pile.real_weight, delimiter: '.')
-          %td
+          %td.align-middle
             = pile.kind
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-default'

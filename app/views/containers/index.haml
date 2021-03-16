@@ -10,8 +10,9 @@
     %tbody
       - @containers.each do |container|
         %tr
-          %td= container.name
-          %td.text-right
+          %td.align-middle
+            = container.name
+          %td.text-right.align-middle
             = number_with_delimiter(container.weight, delimiter: ".")
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_container_path(container), class: 'btn btn-default'
