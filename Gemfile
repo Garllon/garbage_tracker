@@ -20,6 +20,7 @@ gem 'sass-rails', '>= 6'
 gem 'sprockets', '~> 4.0'
 gem 'sprockets-rails', '~> 3.2', require: 'sprockets/railtie'
 gem 'turbolinks', '~> 5'
+gem 'lazy_high_charts', '~> 1.6'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
