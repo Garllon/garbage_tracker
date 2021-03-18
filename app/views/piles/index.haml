@@ -7,11 +7,11 @@
         %th Produced At
         %th.text-right Weight (in g)
         %th.text-right Real Weight (in g)
-        %th Kind
+        %th.text-center Kind
         %th
     %tbody
       - @piles.each do |pile|
-        %tr{class: row_background_color(pile.kind)}
+        %tr
           %td.align-middle
             = pile.produced_at
           %td.text-right.align-middle
@@ -19,7 +19,8 @@
           %td.text-right.align-middle
             = number_with_delimiter(pile.real_weight, delimiter: '.')
           %td.align-middle
-            = pile.kind
+            %div{ class: kind_sign(pile.kind) }
+              = pile.kind
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-default'
             = link_to fa_icon("trash", text: 'Delete'), pile_path(pile), method: :delete, class: 'btn btn-danger'
