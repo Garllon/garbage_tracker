@@ -20,20 +20,21 @@ class GraphsController < ApplicationController
         f.series(name: key, yAxis: 0, data: value[:data])
       end
 
-      f.yAxis({
-                title: { text: 'Garbage in Gramm', margin: 70 },
-                # TODO: Plotlines is maybe not the best here. Needs optimisation
-                plotLines: [{
-                  color: 'yellow',
-                  width: 2,
-                  value: 9500,
-                  zIndex: 5
-                }]
-              })
-
+      f.yAxis(y_axis_config)
       f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
       f.chart({ defaultSeriesType: 'column' })
     end
+  end
+
+  def y_axis_config
+    { title: { text: 'Garbage in Gramm', margin: 70 },
+      # TODO: Plotlines is maybe not the best here. Needs optimisation
+      plotLines: [{
+        color: 'yellow',
+        width: 2,
+        value: 9500,
+        zIndex: 5
+      }] }
   end
 
   def matrix
