@@ -44,8 +44,12 @@ class GraphsController < ApplicationController
                       .group("DATE_TRUNC('month', produced_at)")
                       .sum(:weight)
 
+      months = kind_data.keys.map do |month_number|
+        month_number.strftime("%B")
+      end
+
       hash[kind] = { data: kind_data.values,
-                     month: kind_data.keys.map(&:month) }
+                     month: months }
     end
   end
 end
