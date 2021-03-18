@@ -4,7 +4,9 @@ class PilesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @piles = Pile.includes(:container).where(user_id: current_user.id)
+    @piles = Pile.includes(:container)
+                 .where(user_id: current_user.id)
+                 .order('produced_at DESC')
   end
 
   def new
