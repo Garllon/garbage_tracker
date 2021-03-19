@@ -1,6 +1,6 @@
 # Garbage Tracker
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](license.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
 ... is a rails based web application to allow its users to track their garbage
 amounts.
