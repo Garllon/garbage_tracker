@@ -4,3 +4,16 @@
 
 = high_chart_globals(@graph_presenter.chart_globals)
 = high_chart('waste-graph', @graph_presenter.chart)
+
+The current per head values for garabe are the following:
+
+%table.table
+  %thead
+    %tr
+      %th Kind
+      %th per head/per month
+  %tbody
+    - GraphPresenter::GARBAGE.each do |key, value|
+      %tr
+        %td= key
+        %td= value[:limit]
