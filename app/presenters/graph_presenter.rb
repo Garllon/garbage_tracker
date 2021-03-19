@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class GraphPresenter
-  GARBAGE_COLOR = {
-    bio: '#ae5904',
-    paper: '#3B5998',
-    plastic: '#fbe400',
-    waste: '#0b0b0b'
+  GARBAGE = {
+    bio: { color: '#ae5904', limit: 0 },
+    paper: { color: '#3B5998', limit: 8075 },
+    plastic: { color: '#fbe400', limit: 9500 },
+    waste: { color: '#0b0b0b', limit: 0 }
   }.freeze
 
   def initialize(current_user_id)
@@ -15,7 +15,7 @@ class GraphPresenter
   def chart_globals
     LazyHighCharts::HighChartGlobals.new do |f|
       f.global(useUTC: false)
-      f.colors(GARBAGE_COLOR.values)
+      f.colors(GARBAGE.values.map { |value| value[:color] })
     end
   end
 
@@ -39,12 +39,19 @@ class GraphPresenter
   def y_axis_config
     { title: { text: 'Garbage in Gramm', margin: 70 },
       # TODO: Plotlines is maybe not the best here. Needs optimisation
-      plotLines: [{
-        color: 'yellow',
+      plotLines: plot_lines
+    }
+  end
+
+  def plot_lines
+    GARBAGE.map do |kind, values|
+      {
+        color: values[:color],
         width: 2,
-        value: 9500,
+        value: values[:limit],
         zIndex: 5
-      }] }
+      }
+    end
   end
 
   def matrix
