@@ -39,12 +39,11 @@ class GraphPresenter
   def y_axis_config
     { title: { text: 'Garbage in Gramm', margin: 70 },
       # TODO: Plotlines is maybe not the best here. Needs optimisation
-      plotLines: plot_lines
-    }
+      plotLines: plot_lines }
   end
 
   def plot_lines
-    GARBAGE.map do |kind, values|
+    GARBAGE.map do |_kind, values|
       {
         color: values[:color],
         width: 2,
