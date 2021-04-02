@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 class GraphPresenter
+  # rubocop:disable Layout/LineLength
   GARBAGE = {
-    bio: { color: '#ae5904', limit: 0 },
-    paper: { color: '#3B5998', limit: 8075 },
-    plastic: { color: '#fbe400', limit: 9500 },
-    waste: { color: '#0b0b0b', limit: 0 }
+    bio: { color: '#ae5904', limit: 10_000,
+           source: 'https://www.umweltbundesamt.de/daten/private-haushalte-konsum/wohnen/abfaelle-privater-haushalte#nur-geringer-ruckgang-beim-hausmull' },
+    paper: { color: '#3B5998', limit: 8075,
+             source: 'https://www.umweltbundesamt.de/daten/private-haushalte-konsum/wohnen/abfaelle-privater-haushalte#nur-geringer-ruckgang-beim-hausmull' },
+    plastic: { color: '#fbe400', limit: 8900,
+               source: 'https://www.tagesspiegel.de/berlin/plastikfrei-und-politisch-aktiv-nachhaltig-leben-so-koennen-eltern-vorbilder-sein/25441920.html' },
+    waste: { color: '#0b0b0b', limit: 13_080,
+             source: 'https://www.umweltbundesamt.de/daten/private-haushalte-konsum/wohnen/abfaelle-privater-haushalte#nur-geringer-ruckgang-beim-hausmull' }
   }.freeze
+  # rubocop:enable Layout/LineLength
 
   def initialize(current_user_id)
     @current_user_id = current_user_id
