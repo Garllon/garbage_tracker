@@ -12,9 +12,8 @@ development:
 
 test:
   <<: *default
-  database: garbage_tracker_test
-  username: postgres
-  password: password
+  adapter: sqlite3
+  database: db/garbage_tracker_test.sqlite3
 
 production:
   <<: *default

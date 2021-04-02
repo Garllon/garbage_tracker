@@ -37,3 +37,5 @@ app/assets/.DS_Store
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+db/garbage_tracker_test.sqlite3
