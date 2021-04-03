@@ -15,7 +15,7 @@ jobs:
       run: |
         gem install bundler
         bundle install
-    - name: Build and test
+    - name: Build and check for rubocop issues
       run: |
         bundle exec rubocop
   bundle-outdated:
@@ -30,7 +30,7 @@ jobs:
       run: |
         gem install bundler
         bundle install
-    - name: Build and test
+    - name: Build and check outdated gems
       continue-on-error: true
       run: |
         bundle outdated
