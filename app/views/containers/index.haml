@@ -15,5 +15,5 @@
           %td.text-right.align-middle
             = number_with_delimiter(container.weight, delimiter: ".")
           %td.text-right
-            = link_to fa_icon("edit", text: 'Edit'), edit_container_path(container), class: 'btn btn-default'
+            = link_to fa_icon("edit", text: 'Edit'), edit_container_path(container), class: 'btn btn-light'
             = link_to fa_icon("trash", text: 'Delete'), container_path(container), method: :delete, class: 'btn btn-danger'
