@@ -22,5 +22,5 @@
             %div{ class: kind_sign(pile.kind) }
               = pile.kind
           %td.text-right
-            = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-default'
+            = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-light'
             = link_to fa_icon("trash", text: 'Delete'), pile_path(pile), method: :delete, class: 'btn btn-danger'
