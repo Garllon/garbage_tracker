@@ -5,22 +5,19 @@
     %thead
       %tr
         %th Produced At
-        %th.text-right Weight (in g)
-        %th.text-right Real Weight (in g)
         %th.text-center Kind
+        %th.text-right Tracked Weight (in g)
         %th
     %tbody
       - @piles.each do |pile|
         %tr
           %td.align-middle
             = pile.produced_at
-          %td.text-right.align-middle
-            = number_with_delimiter(pile.weight, delimiter: '.')
-          %td.text-right.align-middle
-            = number_with_delimiter(pile.real_weight, delimiter: '.')
           %td.align-middle
             %div{ class: kind_sign(pile.kind) }
               = pile.kind
+          %td.text-right.align-middle
+            = number_with_delimiter(pile.real_weight, delimiter: '.')
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-light'
             = link_to fa_icon("trash", text: 'Delete'), pile_path(pile), method: :delete, class: 'btn btn-danger'
