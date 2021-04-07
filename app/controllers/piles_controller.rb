@@ -10,7 +10,7 @@ class PilesController < ApplicationController
   end
 
   def new
-    @pile = Pile.new
+    @pile = Pile.new(produced_at: Time.now.strftime('%Y-%m-%d'))
   end
 
   def create
