@@ -18,6 +18,7 @@ $> docker-compose up
 $> docker exec web rake db:setup  
 $> docker exec web rake db:seed
 ```
+or you run it with the [Makefile](/Makefile).
 
 Point your browser to http://localhost:8046 and you will be presented the login
 form.
