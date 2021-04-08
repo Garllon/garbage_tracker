@@ -2,10 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe Container, type: :model do
+describe Container, type: :model do
   it 'needs a user to exist' do
     expect(Container.new).to be_invalid
   end
+
   context 'having a valid user' do
     let(:valid_user) { FactoryBot.build(:user) }
     subject { Container.new(user: valid_user) }
@@ -23,6 +24,7 @@ RSpec.describe Container, type: :model do
           c = Container.new(user: valid_user, name: valid_name, weight: 'abc')
           expect(c).to be_invalid
         end
+
         it 'accepts a number as weight' do
           c = Container.new(user: valid_user, name: valid_name, weight: 123)
           expect(c).to be_valid
