@@ -7,5 +7,8 @@ setup:
 devserver:
 	docker-compose up web
 
+test:
+	docker-compose run --rm web rspec spec
+
 console:
 	docker-compose run web rails c
