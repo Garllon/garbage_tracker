@@ -10,5 +10,8 @@ devserver:
 test:
 	docker-compose run --rm web rspec spec
 
+rubocop:
+	docker-compose run --rm web rubocop -P
+
 console:
 	docker-compose run web rails c
