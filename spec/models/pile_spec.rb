@@ -3,21 +3,57 @@
 require 'rails_helper'
 
 describe Pile, type: :model do
+  subject(:pile) do
+    described_class.new(user: user,
+                        container: container,
+                        kind: kind,
+                        produced_at: produced_at,
+                        weight: weight)
+  end
+
+  let(:user) { nil }
+  let(:container) { nil }
+  let(:kind) { nil }
+  let(:produced_at) { nil }
+  let(:weight) { nil }
+
   it 'needs a user to exist' do
-    expect(Pile.new).to be_invalid
+    expect(pile).to be_invalid
   end
 
   context 'having a valid user' do
-    let(:valid_user) { build(:user) }
-    subject { Pile.new(user: valid_user) }
+    let(:user) { build(:user) }
 
-    it { should be_invalid }
+    it { is_expected.to be_invalid }
 
     context 'having a valid container' do
-      let(:valid_container) { build(:container, user: valid_user) }
-      subject { Pile.new(user: valid_user, container: valid_container) }
+      let(:container) { build(:container, user: user) }
 
-      it { should be_invalid }
+      it { is_expected.to be_invalid }
+
+      context 'having a valid kind' do
+        let(:kind) { :bio }
+
+        it { is_expected.to be_invalid }
+
+        context 'having a valid produced_at' do
+          let(:produced_at) { Date.today }
+
+          it { is_expected.to be_invalid }
+
+          context 'having a weight' do
+            it 'does not accept anything thats not a number' do
+              pile.weight = 'abc'
+              expect(subject).to be_invalid
+            end
+
+            it 'accepts a number as weight' do
+              pile.weight = 100
+              expect(subject).to be_valid
+            end
+          end
+        end
+      end
     end
   end
 end
