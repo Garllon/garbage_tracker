@@ -8,19 +8,21 @@ describe Container, type: :model do
   end
 
   context 'having a valid user' do
-    let(:valid_user) { FactoryBot.build(:user) }
     subject { Container.new(user: valid_user) }
 
-    it { should be_invalid }
+    let(:valid_user) { FactoryBot.build(:user) }
+
+    it { is_expected.to be_invalid }
 
     context 'having a name' do
-      let(:valid_name) { 'dust bin' }
       subject { Container.new(user: valid_user, name: valid_name) }
 
-      it { should be_invalid }
+      let(:valid_name) { 'dust bin' }
+
+      it { is_expected.to be_invalid }
 
       context 'having a weight' do
-        it 'should not accept anything thats not a number' do
+        it 'does not accept anything thats not a number' do
           c = Container.new(user: valid_user, name: valid_name, weight: 'abc')
           expect(c).to be_invalid
         end
