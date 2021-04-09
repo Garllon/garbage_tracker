@@ -5,8 +5,8 @@ class Pile < ApplicationRecord
   belongs_to :user
 
   enum kind: %i[bio paper plastic waste]
-  validates :produced_at, presence: true
-  validates :weight, presence: true
+  validates :produced_at, :weight, presence: true
+  validates :weight, numericality: true
 
   before_save :calculate_real_weight
 
