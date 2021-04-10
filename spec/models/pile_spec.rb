@@ -3,64 +3,29 @@
 require 'rails_helper'
 
 describe Pile, type: :model do
-  subject(:pile) do
-    described_class.new(user: user,
-                        container: container,
-                        kind: kind,
-                        produced_at: produced_at,
-                        weight: weight)
+  subject(:pile) { build(:pile) }
+
+  it 'has an valid weight' do
+    expect(pile).to be_valid
   end
 
-  let(:user) { nil }
-  let(:container) { nil }
-  let(:kind) { nil }
-  let(:produced_at) { nil }
-  let(:weight) { nil }
-
-  it 'needs a user to exist' do
+  it 'has an invalid weight' do
+    pile.weight = 'abc'
     expect(pile).to be_invalid
   end
 
-  context 'having a valid user' do
-    let(:user) { build(:user) }
+  it 'has an invalid produced_at' do
+    pile.produced_at = nil
+    expect(pile).to be_invalid
+  end
 
-    it { is_expected.to be_invalid }
+  it 'has an invalid kind' do
+    pile.kind = nil
+    expect(pile).to be_invalid
+  end
 
-    context 'having a valid container' do
-      let(:container) { build(:container, user: user) }
-
-      it { is_expected.to be_invalid }
-
-      context 'having a valid kind' do
-        let(:kind) { :bio }
-
-        it { is_expected.to be_invalid }
-
-        context 'having a valid produced_at' do
-          let(:produced_at) { Date.today }
-
-          it { is_expected.to be_invalid }
-
-          context 'having a weight' do
-            it 'does not accept anything thats not a number' do
-              pile.weight = 'abc'
-              expect(subject).to be_invalid
-            end
-
-            it 'accepts a number as weight' do
-              pile.weight = 100
-              expect(subject).to be_valid
-            end
-
-            it 'has a real_weight after save' do
-              pile.weight = 1000
-              expected_value = pile.weight - container.weight
-              subject.save
-              expect(subject.reload.real_weight).to be expected_value
-            end
-          end
-        end
-      end
-    end
+  it 'has an invalid user' do
+    pile.user = nil
+    expect(pile).to be_invalid
   end
 end
