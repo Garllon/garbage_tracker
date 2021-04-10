@@ -15,3 +15,6 @@ rubocop:
 
 console:
 	docker-compose run web rails c
+
+bundle:
+	docker-compose run --rm web bundle install
