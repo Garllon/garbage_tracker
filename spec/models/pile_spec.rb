@@ -51,6 +51,13 @@ describe Pile, type: :model do
               pile.weight = 100
               expect(subject).to be_valid
             end
+
+            it 'has a real_weight after save' do
+              pile.weight = 1000
+              expected_value = pile.weight - container.weight
+              subject.save
+              expect(subject.reload.real_weight).to be expected_value
+            end
           end
         end
       end
