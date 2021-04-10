@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
     NewCops: enable
 
@@ -24,7 +26,6 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
-    - 'spec/models/pile_spec.rb'
     - 'db/schema.rb'
 
 Style/StringLiterals:
