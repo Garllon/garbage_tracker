@@ -12,13 +12,29 @@ as of now. **Use at your own risk!**
 
 To get things running *locally* for the firtst time you have to set up the
 stack on your development machine:
+```
+# pure setup
+make
 
+# start development server
+make devserver
+
+# start a console
+make console
+
+# run rspec
+make test
+
+# run rubocop
+make rubocop
 ```
-$> docker-compose up  
-$> docker exec web rake db:setup  
-$> docker exec web rake db:seed
+
+Checkout for more commands and details here: [Makefile](/Makefile).
+
+If you nedd to run something specific then run:
 ```
-or you run it with the [Makefile](/Makefile).
+docker-compose run web <command>
+```
 
 Point your browser to http://localhost:8046 and you will be presented the login
 form.
