@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Pile, type: :model do
   subject(:pile) { build(:pile) }
 
-  it 'has an valid weight' do
+  it 'has valid data' do
     expect(pile).to be_valid
   end
 
