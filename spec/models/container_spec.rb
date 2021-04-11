@@ -3,35 +3,29 @@
 require 'rails_helper'
 
 describe Container, type: :model do
-  it 'needs a user to exist' do
-    expect(Container.new).to be_invalid
+  subject(:container) { build(:container) }
+
+  it 'has valid data' do
+    expect(container).to be_valid
   end
 
-  context 'having a valid user' do
-    subject { Container.new(user: valid_user) }
+  it 'has an invalid weight' do
+    container.weight = 'abc'
+    expect(container).to be_invalid
+  end
 
-    let(:valid_user) { FactoryBot.build(:user) }
+  it 'has no weight' do
+    container.weight = nil
+    expect(container).to be_invalid
+  end
 
-    it { is_expected.to be_invalid }
+  it 'has no name' do
+    container.name = nil
+    expect(container).to be_invalid
+  end
 
-    context 'having a name' do
-      subject { Container.new(user: valid_user, name: valid_name) }
-
-      let(:valid_name) { 'dust bin' }
-
-      it { is_expected.to be_invalid }
-
-      context 'having a weight' do
-        it 'does not accept anything thats not a number' do
-          c = Container.new(user: valid_user, name: valid_name, weight: 'abc')
-          expect(c).to be_invalid
-        end
-
-        it 'accepts a number as weight' do
-          c = Container.new(user: valid_user, name: valid_name, weight: 123)
-          expect(c).to be_valid
-        end
-      end
-    end
+  it 'has no user' do
+    container.user = nil
+    expect(container).to be_invalid
   end
 end
