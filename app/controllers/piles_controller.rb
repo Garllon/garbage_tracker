@@ -3,6 +3,9 @@
 class PilesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_pile, only: %w[edit update destroy]
+  before_action only: %w[edit update destroy] do
+    authorize_user_pundit_rights(@pile)
+  end
 
   def index
     @piles = Pile.includes(:container)

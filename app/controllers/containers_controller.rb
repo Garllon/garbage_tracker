@@ -3,6 +3,9 @@
 class ContainersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_container, only: %w[edit update destroy]
+  before_action only: %w[edit update destroy] do
+    authorize_user_pundit_rights(@container)
+  end
 
   def index
     @containers = Container.where(user_id: current_user.id)

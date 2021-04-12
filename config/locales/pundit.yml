@@ -1,0 +1,11 @@
+en:
+ pundit:
+   default: 'You cannot perform this action.'
+   pile_policy:
+     edit?: 'You cannot edit this pile!'
+     update?: 'You cannot update this pile!'
+     detory?: 'You cannot delete this pile!'
+   container_policy:
+     edit?: 'You cannot edit this container!'
+     update?: 'You cannot update this container!'
+     detory?: 'You cannot delete this container!'
