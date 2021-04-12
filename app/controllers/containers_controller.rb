@@ -2,6 +2,7 @@
 
 class ContainersController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_container, only: %w[edit update destroy]
 
   def index
     @containers = Container.where(user_id: current_user.id)
@@ -22,13 +23,9 @@ class ContainersController < ApplicationController
     end
   end
 
-  def edit
-    @container = Container.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @container = Container.find(params[:id])
-
     if @container.update(container_params)
       redirect_to containers_path, notice: t('.success')
     else
@@ -38,12 +35,15 @@ class ContainersController < ApplicationController
   end
 
   def destroy
-    container = Container.find(params[:id])
-    container.delete
+    @container.delete
     redirect_to containers_path
   end
 
   private
+
+  def find_container
+    @container = Container.find(params[:id])
+  end
 
   def container_params
     container_params = params

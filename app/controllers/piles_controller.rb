@@ -2,6 +2,7 @@
 
 class PilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_pile, only: %w[edit update destroy]
 
   def index
     @piles = Pile.includes(:container)
@@ -24,13 +25,9 @@ class PilesController < ApplicationController
     end
   end
 
-  def edit
-    @pile = Pile.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @pile = Pile.find(params[:id])
-
     if @pile.update(pile_params)
       redirect_to piles_path, notice: t('.success')
     else
@@ -40,12 +37,15 @@ class PilesController < ApplicationController
   end
 
   def destroy
-    pile = Pile.find(params[:id])
-    pile.delete
+    @pile.delete
     redirect_to piles_path
   end
 
   private
+
+  def find_pile
+    @pile = Pile.find(params[:id])
+  end
 
   def pile_params
     pile_params = params.require(:pile)
