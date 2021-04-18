@@ -19,4 +19,5 @@ production:
   <<: *default
   database: garbage_tracker_production
   username: garbage_tracker
+  url: <%= ENV['DATABASE_URL'] %>
   password: <%= ENV['GARBAGE_TRACKER_DATABASE_PASSWORD'] %>
