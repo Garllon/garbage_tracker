@@ -14,5 +14,6 @@ COPY . /app
 
 EXPOSE 3000
 
+RUN bin/rake assets:precompile
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
