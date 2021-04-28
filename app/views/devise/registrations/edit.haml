@@ -29,6 +29,10 @@
         %i (we need your current password to confirm your changes)
         = f.password_field :current_password, autocomplete: "current-password",
           class: 'form-control'
+      .form-group
+        = f.label :people_in_household
+        %i (Tell us the number of people contributing to your waste in order to properly compute your per capita stats)
+        = f.text_field :people_in_household, class: 'form-control'
     .card-footer
       = f.submit "Update", class: 'btn btn-success'
 
