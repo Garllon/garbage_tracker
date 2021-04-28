@@ -7,6 +7,7 @@
         %th Produced At
         %th.text-center Kind
         %th.text-right Tracked Weight (in g)
+        %th Container
         %th
     %tbody
       - @piles.each do |pile|
@@ -18,6 +19,9 @@
               = pile.kind
           %td.text-right.align-middle
             = number_with_delimiter(pile.real_weight, delimiter: '.')
+          %td
+            - if pile.container
+              = link_to fa_stacked_icon("recycle", text: pile.container.name), edit_container_path(pile.container), class: 'btn btn-light'
           %td.text-right
             = link_to fa_icon("edit", text: 'Edit'), edit_pile_path(pile), class: 'btn btn-light'
             = link_to fa_icon("trash", text: 'Delete'), pile_path(pile), method: :delete, class: 'btn btn-danger'
