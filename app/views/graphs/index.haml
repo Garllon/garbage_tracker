@@ -11,17 +11,22 @@
 
 .card
   .card-header
-    %h3 The current per head values for garabe
+    %h3= "Monthly Statistics: #{@date.strftime("%B %Y")}"
   .card-body
     %table.table
       %thead
         %tr
-          %th Kind
-          %th per head/per month
+          %th.text-left Kind
+          %th.text-left Your household (total)
+          %th.text-left Your household (per person)
+          %th.text-right Average household (per person)
           %th Source
       %tbody
         - GraphPresenter::GARBAGE.each do |key, value|
+          - household_weight = Pile.where(user_id: current_user.id).where(kind: key).group("DATE_TRUNC('month', produced_at)").sum(:weight).values.first
           %tr
-            %td= key
+            %td.text-left= key
+            %td.text-left="#{household_weight}g"
+            %td.text-left="#{household_weight/current_user.people_in_household}g"
             %td.text-right= "#{value[:limit]} g"
-            %td= link_to value[:source]
+            %td= link_to 'Source', value[:source]
