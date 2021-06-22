@@ -1,6 +1,7 @@
 # Garbage Tracker
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1662b39b4514f26fcd0e/maintainability)](https://codeclimate.com/github/Garllon/garbage_tracker/maintainability)
 
 ... is a rails based web application to allow its users to track their garbage
 amounts.
